@@ -1,0 +1,64 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "test API",
+    "version": "v0.1"
+  },
+  "servers": [
+    {
+      "url": "https://portaone-test.yurgo.fun/"
+    },
+    {
+      "url": "http://localhost:3011"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Users API:",
+      "description": "main _path - https://dietary-rest-api.yurgo.fun/"
+    }
+  ],
+  "paths": {
+    "/api/parser": {
+      "post": {
+        "summary": "PARSE TEXT FOR UNIQUE LETTER",
+        "tags": ["Parser"],
+        "description": "---------",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "example": "The Tao gave birth to machine language.  Machine language gave birth to the assembler. The assembler gave birth to the compiler.  Now there are ten thousand languages. Each language has its purpose, however humble.  Each language expresses the Yin and Yang of software.  Each language has its place within the Tao."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "uniqueLetter": {
+                      "type": "string",
+                      "example": "m"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
