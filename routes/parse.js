@@ -1,9 +1,9 @@
 const express = require('express');
 const { parser} = require('../controllers');
-// const appointmentMiddleware = require('../middlewares/appointmentsMiddlewares');
+const textValidator = require('../middlewares/inputValidatorMdlwr');
 
 const router = express.Router();
 
-router.post('/', parser);
+router.post('/', textValidator, parser);
 
 module.exports = router;
