@@ -1,5 +1,5 @@
-const parser = require('./parser');
+const parserCtrl = require('./parser');
 
 module.exports = {
-  parser,
+  parserCtrl,
 };
