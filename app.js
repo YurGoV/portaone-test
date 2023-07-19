@@ -5,11 +5,9 @@ const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./utils/swaggerApi.json');
 
-const { DEV_ENV } = process.env;
+const { NODE_ENV } = process.env;
 
-const {
-  parse
-} = require('./routes');
+const { parserRoute } = require('./routes');
 
 const app = express();
 
@@ -31,15 +29,11 @@ app.use((req, res, next) => {
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.use('/api/parser', parse);
-
-app.get('/api', (req, res) => {
-  res.send('Hello World! This is the first response from DIETARY backend :-)');
-});
+app.use('/api/parser', parserRoute);
 
 app.all('*', (req, res) => {
   res.status(404).json({
-    message: 'route not found',
+    message: 'route not found. Go to the /api-docs route please',
   });
 });
 
@@ -48,9 +42,8 @@ app.all('*', (req, res) => {
  */
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
-  // const { status } = err; // there we get error status
 
-  if (DEV_ENV === 'development') {
+  if (NODE_ENV === 'development') {
     return res.status(err.status).json({ error: err.message, stack: err.stack });
   } 
   return res.status(err.status).json({ error: err.message });

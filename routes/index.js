@@ -1,5 +1,5 @@
-const parse = require('./parse');
+const parserRoute = require('./parse');
 
 module.exports = {
-  parse
+  parserRoute
 };
