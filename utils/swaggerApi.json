@@ -2,11 +2,11 @@
   "openapi": "3.0.1",
   "info": {
     "title": "test API",
-    "version": "v0.1"
+    "version": "v0.2"
   },
   "servers": [
     {
-      "url": "https://portaone-test.yurgo.fun/"
+      "url": "https://portaone-test.yurgo.fun"
     },
     {
       "url": "http://localhost:3011"
@@ -15,13 +15,13 @@
   "tags": [
     {
       "name": "Users API:",
-      "description": "main _path - https://dietary-rest-api.yurgo.fun/"
+      "description": "TEXT PARSER TO SEARCH FIRST UNIQUE LETTER"
     }
   ],
   "paths": {
     "/api/parser": {
       "post": {
-        "summary": "PARSE TEXT FOR UNIQUE LETTER",
+        "summary": "route to receive text",
         "tags": ["Parser"],
         "description": "---------",
         "requestBody": {
@@ -41,16 +41,32 @@
           }
         },
         "responses": {
-          "201": {
+          "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "uniqueLetter": {
+                    "message": {
                       "type": "string",
-                      "example": "m"
+                      "example": "the first unique letter in given text is 'e'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "\"text\" is required"
                     }
                   }
                 }
