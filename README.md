@@ -11,7 +11,7 @@
 ## запуск проекту
 
 - online документація/тестування : https://portaone-test.yurgo.fun/api-docs/ (або згідно документації - запитом з будь-якого http клієнта на раут https://portaone-test.yurgo.fun/api/parser)
-- також додаток можна запустити локально ,
+- також додаток можна запустити локально,
   - тоді документація буде доступна за адресою http://localhost:3011/api-docs/
   - адреса запиту http://localhost:3011/api/parser
 
