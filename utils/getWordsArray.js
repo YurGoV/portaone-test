@@ -1,5 +1,5 @@
 const getWordsArray = (text) => {
-  const wordsArray = text.split(/[^A-Za-zА-Яа-я-]+/)
+  const wordsArray = text.split(/[^\p{L}'`-]+/u)
     .filter(word => word !== '')
 
   return (wordsArray)
